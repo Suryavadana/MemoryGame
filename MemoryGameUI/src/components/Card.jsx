@@ -1,5 +1,6 @@
 import React from 'react'; //import react to use jsx
 import {useSpring, animated } from '@react-spring/web';  //for animations
+import '../styles/GameBoard.css';
 
 //Define the card component
 const Card = ({card, onClick, isFlipped}) => {   // card component takes card, onclick, isFlipped as props
@@ -31,12 +32,14 @@ const Card = ({card, onClick, isFlipped}) => {   // card component takes card, o
                 position: 'absolute',
                 width: '100%',
                 height: '100%',
-                backfaceVisibitlity: 'hidden', //hides when flipped
+                backfaceVisibility: 'hidden', //hides when flipped
                 display:'flex',
                 justifyContent: 'center',
-                backgroundColor: '#f0f0f0',
+                backgroundColor: 'lightblue',
+                boxShadow: '0 2px 5px rgba(0, 0, 0, 0.3)', // Shadow for depth
                 alignItems: 'center',
-                borderRadius: '8px',
+                // borderRadius: '8px',
+
             }}>
                 {isFlipped ? front : back}
             </div>

@@ -1,6 +1,7 @@
 // src/components/GameBoard.js
 import React, { useState } from 'react';
-import Card from './Card'; // Import the Card component
+//import Card from './Card'; // Import the Card component
+import Card from './card';
 
 // Initial card data with front and back values
 const initialCards = [
@@ -17,6 +18,8 @@ const GameBoard = () => {
     // State to keep track of flipped cards
     const [flippedCards, setFlippedCards] = useState([]);
     const [matchedCards, setMatchedCards] = useState([]); // Track matched cards
+    const [flipCount, setFlipCount] =useState(0); //state for flip count
+
     //const [lastFlippedCard, setLastFlippedCard] = useState(null); // Track last flipped card
 
     // Function to handle card clicks
@@ -34,6 +37,7 @@ const GameBoard = () => {
 
         //update flipped cards
         setFlippedCards((prev)=>[...prev,cardId]);
+        setFlipCount((prev)=> prev +1); //increment flip count
 
         //check for matches
         if(flippedCards.length === 1){
@@ -56,8 +60,20 @@ const GameBoard = () => {
         }
     };
 
+    //Function to reset the game
+    const resetGame= () => {
+        setFlippedCards([]);
+        setMatchedCards([]);
+        setFlipCount(0);
+        // Shuffle the cards again
+        initialCards.sort(()=> Math.random()-0.5);
+    };
     return (
+        <div>
+            <h2>Number of Flips: {flipCount}</h2> {/*DIsplay the flip count */}
+            <button onClick={resetGame} color='light yellow'>Reset Game</button>
         <div style={{ display: 'flex', flexWrap: 'wrap', width: '400px' }}>
+          
             {initialCards.map((card) => (
                 // Render the Card component for each card
                 <Card // Use Card with uppercase
@@ -67,6 +83,7 @@ const GameBoard = () => {
                     onClick={() => handleCardClick(card.id)} // Handle card click
                 />
             ))}
+        </div>
         </div>
     );
 };
