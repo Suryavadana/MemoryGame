@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 //import Card from './Card'; // Import the Card component
 import Card from './card';
+import '../App.css';
 
 // Initial card data with front and back values
 const initialCards = [
@@ -9,8 +10,9 @@ const initialCards = [
     { id: 2, front: 'A', back: '?' },
     { id: 3, front: 'B', back: '?' },
     { id: 4, front: 'B', back: '?' },
-    { id: 5, front: 'C', back: '?' },
-    { id: 6, front: 'C', back: '?' },
+    // { id: 5, front: 'C', back: '?' },
+    // { id: 6, front: 'C', back: '?' },
+    
 ].sort(() => Math.random() - 0.5); // Shuffle the cards randomly
 
 // Define GameBoard component
@@ -68,24 +70,38 @@ const GameBoard = () => {
         // Shuffle the cards again
         initialCards.sort(()=> Math.random()-0.5);
     };
+    const toggleFullScreen = () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+    };
+    
     return (
-        <div>
-            <h2>Number of Flips: {flipCount}</h2> {/*DIsplay the flip count */}
-            <button onClick={resetGame} color='light yellow'>Reset Game</button>
-        <div style={{ display: 'flex', flexWrap: 'wrap', width: '400px' }}>
-          
-            {initialCards.map((card) => (
-                // Render the Card component for each card
-                <Card // Use Card with uppercase
-                    key={card.id} // Unique key for each card
-                    card={card} // Pass the card data to the Card component
-                    isFlipped={flippedCards.includes(card.id) || matchedCards.includes(card.id)} // Check if card is flipped
-                    onClick={() => handleCardClick(card.id)} // Handle card click
-                />
-            ))}
-        </div>
+        <div className="text-center mt-5">
+            <h2 style={{ marginTop: '120px', color: '#f39c12'}}>Number of Flips: {flipCount}</h2> {/* Added marginTop for visibility */}
+            <button onClick={resetGame} className="btn btn-warning mb-4">Reset Game</button>
+            <div className="game-board">
+                <div className="container">
+                    <div className="row justify-content-center gx-1">
+                        {initialCards.map((card) => (
+                            <div className="col-6 d-flex justify-content-center mb-3" key={card.id}>
+                                <Card
+                                    card={card}
+                                    isFlipped={flippedCards.includes(card.id) || matchedCards.includes(card.id)}
+                                    onClick={() => handleCardClick(card.id)}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
     );
-};
+    
+};    
 
 export default GameBoard; // Export GameBoard component

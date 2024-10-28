@@ -1,21 +1,88 @@
-/* App.css */
-
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333; /* Dark text color for contrast */
+    font-family: Arial, sans-serif; /* Set a clean font */
+    margin: 0; /* Remove default body margin */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Use flexbox for centering content */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center content horizontally */
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .card {
-        width: 80px; /* Smaller cards on smaller screens */
-        height: 80px;
-    }
+.navbar {
+    background-color: #3B9ED8; /* Navbar background color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Navbar shadow for depth */
+    padding: 15px 20px; /* Increased padding for better spacing */
+    width: 100%; /* Full width */
+    position: fixed; /* Fixed position at the top */
+    top: 0; /* Position it at the top */
+    left: 0; /* Align it to the left */
+    z-index: 1000; /* Ensure it sits above other content */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
 }
 
-@media (max-width: 480px) {
-    .card {
-        width: 60px; /* Even smaller cards */
-        height: 60px;
-    }
+.navbar-brand {
+    color: white; /* Light yellow for text color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+    font-size: 2em; /* Increase font size for visibility */
+    margin: 0; /* Remove default margin */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar-brand:hover {
+    color: #FFF; /* Change text color on hover */
+}
+
+.game-board {
+    background-image: url('src/images/images.jpg'); /* Replace with your image path */
+    background-size: cover; /* Adjust to cover the entire area */
+    background-position: center; /* Center the background image */
+    padding: 20px; /* Add padding around the game board */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    display: flex; /* Flexbox for centering content */
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    max-width: 90vw; /* Limit the width to 90% of the viewport */
+    max-height: 80vh; /* Limit the height to 80% of the viewport */
+    overflow: auto; /* Allow scrolling if content overflows */
+    margin-top: 50px; /* Increased space below the navbar */
+}
+
+
+.card {
+    width: 100px; /* Card width */
+    height: 100px; /* Card height */
+    margin: 10px; /* Add margin for spacing */
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Card shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.text-center {
+    text-align: center; /* Center text */
+    margin-bottom: 20px; /* Space between text and game board */
+    z-index: 100; /* Ensure it sits above the game board */
+    position: relative; /* Required for z-index to work */
+    text-color: "f39c12";
+}
+
+.btn {
+    padding: 10px 20px; /* Button padding */
+    font-size: 18px; /* Button font size */
+    border-radius: 5px; /* Rounded button corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+.btn-warning {
+    background-color: #f39c12; /* Warning button color */
+    color: white; /* Button text color */
+}
+
+.btn-warning:hover {
+    background-color: #e67e22; /* Darker on hover */
 }

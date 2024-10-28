@@ -1,6 +1,5 @@
 import React from 'react'; //import react to use jsx
 import {useSpring, animated } from '@react-spring/web';  //for animations
-import '../styles/GameBoard.css';
 
 //Define the card component
 const Card = ({card, onClick, isFlipped}) => {   // card component takes card, onclick, isFlipped as props
@@ -15,17 +14,15 @@ const Card = ({card, onClick, isFlipped}) => {   // card component takes card, o
 
     //Animated div that represents the card
     <animated.div
+        className="card" // Use the card class
         style={{
-            ...props, // Spread the animation properties
-            width: '100px',
-            height: '100px',
-            border: '1px solid #333',
-            cursor: 'pointer',
-            perspective: '1000px', // for 3D effect
-            position: 'relative', //for the inner content
-            margin: '10px', //space between the cards
+            ...props,
+            perspective: '1000px',
+            margin: '10px',
         }}
+        
         onClick= {onClick} //Handles click event
+        
         >
             {/** Inner div for the card face */}
             <div style={{
@@ -35,8 +32,8 @@ const Card = ({card, onClick, isFlipped}) => {   // card component takes card, o
                 backfaceVisibility: 'hidden', //hides when flipped
                 display:'flex',
                 justifyContent: 'center',
-                backgroundColor: 'lightblue',
-                boxShadow: '0 2px 5px rgba(0, 0, 0, 0.3)', // Shadow for depth
+                // backgroundColor: '#76C7C0',
+                // boxShadow: '0 2px 5px rgba(0, 0, 0, 0.3)', // Shadow for depth
                 alignItems: 'center',
                 // borderRadius: '8px',
 
