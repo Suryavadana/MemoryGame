@@ -1,14 +1,19 @@
 import React from 'react';
 import NavBar from './components/NavBar';
-import GameBoard from './components/gameboard';
+import GameBoard from './components/GameBoard'; // Ensure this matches your component name
+import Home from './components/Home';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
     return (
-        <div>
+        <Router>
             <NavBar />
-            <GameBoard/>
-        </div>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/game" element={<GameBoard />} />
+            </Routes>
+        </Router>
     );
 };
 

@@ -34,7 +34,32 @@ body {
 .navbar-brand:hover {
     color: #FFF; /* Change text color on hover */
 }
+.navbar-links {
+    display: flex; /* Arrange buttons in a row */
+    gap: 15px; /* Space between buttons */
+}
 
+.navbar-button {
+    text-decoration: none; /* Remove underline */
+    color: #E4F581; /* Button text color */
+    padding: 10px 15px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #3B9ED8; /* Button background color */
+    transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+.navbar-button:hover {
+    background-color: #2A7BB0; /* Darker background on hover */
+}
+.full-image {
+    position: absolute; /* Allow it to be positioned */
+    top: 60px; /* Adjust based on navbar height */
+    left: 0;
+    width: 100%; /* Full width */
+    height: calc(100vh - 60px); /* Full height minus navbar height */
+    object-fit: cover; /* Cover the area without stretching */
+    z-index: 0; /* Ensure it's behind other elements */
+}
 .game-board {
     background-image: url('src/images/images.jpg'); /* Replace with your image path */
     background-size: cover; /* Adjust to cover the entire area */
@@ -67,7 +92,7 @@ body {
     margin-bottom: 20px; /* Space between text and game board */
     z-index: 100; /* Ensure it sits above the game board */
     position: relative; /* Required for z-index to work */
-    text-color: "f39c12";
+    
 }
 
 .btn {
