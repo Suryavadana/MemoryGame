@@ -1,28 +1,24 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
-import './App.css'; // Ensure you import your CSS file
-
+import React from 'react';
+import '../App.css';
+import { Link } from 'react-router-dom';
 const NavBar = () => {
-    const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen); // Toggle the menu
+    const toggleFullScreen = () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
     };
-
     return (
         <nav className="navbar">
             <h1 className="navbar-brand">Memory Game</h1>
-            <div className="navbar-toggle" onClick={toggleMenu}>
-                <div className="bar"></div>
-                <div className="bar"></div>
-                <div className="bar"></div>
+            <div className="navbar-links">
+                <Link to="/" className="navbar-button">Home</Link>
+                <Link to="/game" className="navbar-button">Game</Link>
+                <button onClick={toggleFullScreen} className='btn btn-info mb-4'>FullScreen</button>
             </div>
-            {isOpen && (
-                <div className="navbar-links">
-                    <Link to="/" className="navbar-button" onClick={toggleMenu}>Home</Link>
-                    <Link to="/game" className="navbar-button" onClick={toggleMenu}>Game</Link>
-                </div>
-            )}
         </nav>
     );
 };
