@@ -19,7 +19,7 @@ body {
     left: 0; /* Align it to the left */
     z-index: 1000; /* Ensure it sits above other content */
     display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center content horizontally */
+    justify-content: space-between; /* Center content horizontally */
     align-items: center; /* Center content vertically */
 }
 
@@ -31,12 +31,19 @@ body {
     transition: color 0.3s ease; /* Smooth color transition */
 }
 
+.navbar-title {
+    flex-grow: 1; /* Allow the title to take up available space */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the title text */
+}
+
 .navbar-brand:hover {
     color: #FFF; /* Change text color on hover */
 }
-.navbar-links {
-    display: flex; /* Arrange buttons in a row */
-    gap: 15px; /* Space between buttons */
+.nav-link {
+    margin-left: 20px; /* Space between links */
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
 }
 
 .navbar-button {
@@ -67,7 +74,7 @@ body {
     padding: 20px; /* Add padding around the game board */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-    display: flex; /* Flexbox for centering content */
+    /* display: flex; Flexbox for centering content */
     flex-direction: column; /* Stack cards vertically */
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
@@ -75,6 +82,8 @@ body {
     max-height: 80vh; /* Limit the height to 80% of the viewport */
     overflow: auto; /* Allow scrolling if content overflows */
     margin-top: 50px; /* Increased space below the navbar */
+    display: grid;
+    gap: 10px; /* Optional gap between cards */
 }
 
 
@@ -101,6 +110,7 @@ body {
     border-radius: 5px; /* Rounded button corners */
     cursor: pointer; /* Pointer on hover */
     transition: background-color 0.3s ease; /* Smooth background color change */
+    margin-left: 20px; 
 }
 
 .btn-warning {
@@ -110,4 +120,24 @@ body {
 
 .btn-warning:hover {
     background-color: #e67e22; /* Darker on hover */
+}
+
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adjust height if necessary */
+}
+/* Additional styles for button spacing and alignment */
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+.gap-2 > * {
+    margin-right: 10px; /* Space between buttons */
+}
+
+.me-auto {
+    margin-right: auto; /* Push buttons to the right */
 }

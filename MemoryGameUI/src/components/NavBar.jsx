@@ -13,7 +13,9 @@ const NavBar = () => {
     };
     return (
         <nav className="navbar">
+             <div className="navbar-title">
             <h1 className="navbar-brand">Memory Game</h1>
+            </div>
             <div className="navbar-links">
                 <Link to="/" className="navbar-button">Home</Link>
                 <Link to="/game" className="navbar-button">Game</Link>
